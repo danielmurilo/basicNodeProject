@@ -1,6 +1,7 @@
 const express = require('express')
-const { MongoClient } = require('mongodb')
-const DB_URL = 'mongodb://localhost:27017'
+const { MongoClient, ObjectId } = require('mongodb')
+//const DB_URL = 'mongodb://localhost:27017'
+const DB_URL = 'mongodb+srv://danielmurilo:1mXwoxTEF3jhmDgG@cluster0.miypfcw.mongodb.net'
 const DB_NAME = 'ocean-data-base-09-02-2023'
 
 async function main() {
@@ -24,9 +25,6 @@ async function main() {
     res.send('Olá, mundo!')
   })
 
-  //list of characters
-  const itens = ['Rick Sanchez', 'Morty Smith', 'Summer Smith']
-
   //doing a CRUD
   //Endpoint Read All -> [GET] /itens
   app.get('/itens', async function (req, res) {
@@ -35,19 +33,40 @@ async function main() {
   })
 
   //Endpoint Read By Id -> [GET] /itens/:id
-  app.get('/itens/:id', function (req, res) {
+  app.get('/itens/:id', async function (req, res) {
     const id = req.params.id
-    const item = itens[id - 1] //for a better user experience, 1 = 0 :) 
+    const item = await collection.findOne({ _id: new ObjectId(id) })
+    res.send(item)
+  })
+
+  //Endpoint findByName -> [GET] /itens/name/:name
+  app.get('/itens/name/:name', async function (req, res) {
+    const name = req.params.name
+    const item = await collection.findOne({ 'nome': name })
     res.send(item)
   })
 
   //Endpoint Create -> [POST] /itens
-  app.post('/itens', function (req, res) {
+  app.post('/itens', async function (req, res) {
     const item = req.body
-    itens.push(item.nome)
-    res.send('Item inserido com sucesso')
+    await collection.insertOne(item)
+    res.send(item)
   })
 
+  //Endpoint Update -> [PUT] /itens/:id
+  app.put('/itens/:id', async function (req, res) {
+    const id = req.params.id
+    const body = req.body
+    await collection.updateOne({ _id: new ObjectId(id) },{ $set: body })
+    res.send(body)
+  })
+
+  //Endpoint Delete -> [DELETE] /itens/:id
+  app.delete('/itens/:id', async function (req, res) {
+    const id = req.params.id
+    await collection.deleteOne({ _id: new ObjectId(id) })
+    res.send('registro excluído com sucesso!')
+  })
 
   app.listen(3000)
 
