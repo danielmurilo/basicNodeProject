@@ -1,7 +1,7 @@
 const express = require('express')
 const { MongoClient, ObjectId } = require('mongodb')
 //const DB_URL = 'mongodb://localhost:27017'
-const DB_URL = '[hidden data]'
+const DB_URL = 'mongodb+srv://danielmurilo:1mXwoxTEF3jhmDgG@cluster0.miypfcw.mongodb.net'
 const DB_NAME = 'ocean-data-base-09-02-2023'
 
 async function main() {
