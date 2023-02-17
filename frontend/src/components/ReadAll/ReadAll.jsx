@@ -31,8 +31,7 @@ const items = [
 
 function ReadAll() {
     return <div className="ReadAll">
-        {itens.map(function (item) {
-            console.log(item)
+        {items.map(function (item) {
             return <Card key={'card-' + item._id} item={item}/>
         })}         
     </div>
