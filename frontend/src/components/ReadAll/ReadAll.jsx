@@ -1,5 +1,11 @@
+import Card from "../cards/Card"
+
 function ReadAll() {
-    return <div>Read All</div>
+    return <div className="ReadAll">
+        <Card />
+        <Card />
+        <Card />     
+    </div>
 }
 
 export default ReadAll
