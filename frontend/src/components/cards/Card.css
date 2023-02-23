@@ -1,15 +1,41 @@
 .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
     border: 1px solid white;
     border-radius: 1rem;
     margin: 2rem;
-    box-shadow: 3px 3px grey;
+    box-shadow: 3px 3px white;
+    width: 20rem;
 }
 
 .card > img {
     border-radius: 1rem;
-    width: 200px;
+    width: 200px;    
 }
 
 .card > h1 {
     font-size: 2rem;
+}
+
+.tag-wrapper {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.tag {
+    font-size: 12px;
+    background: white;
+    color: black;
+    padding: 0 0.75rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    max-width: 8rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }

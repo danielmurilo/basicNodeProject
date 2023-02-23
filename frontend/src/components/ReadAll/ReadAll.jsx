@@ -6,6 +6,7 @@ const items = [
       _id: "63ee1e0b18f2b9a93da8435a",
       nome: "Rick Sanchez",
       imagemUrl: "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
+      tags: ["Status: Vivo", "Especie: Humana", "Origem: Terra C-137"]
     },
     {
       _id: "63ef87c74522de2944ab1fa8",
