@@ -1,8 +1,13 @@
+import React from "react";
+import "./Header.css";
+
 function Header() {
-    return <div>
+    return <div className="Header">
         <img src="https://oceanbrasil.com/assets/logo.svg" alt="Logo da Ocean" title="Logo da Ocean"/>
-        <a href="#">Home</a>
-        <a href="#">Criar</a>
+        <div className="Header__links">
+            <a href="#">Home</a>
+            <a href="#">Criar</a>
+        </div>        
     </div>
 }
 
