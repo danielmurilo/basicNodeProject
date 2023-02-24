@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"; //React Hooks
 import Card from "../cards/Card"
 import "./ReadAll.css"
 
@@ -39,15 +39,13 @@ function ReadAll() {
 
   async function toRequest() {
     //calling backend:
-    //const response = await fetch('http://localhost:3000/itens');
-    const response = await fetch('https://backend-jornada-fullstack-fevereiro-23.onrender.com/itens')
+    const response = await fetch('http://localhost:3000/itens');
+    //const response = await fetch('https://backend-jornada-fullstack-fevereiro-23.onrender.com/itens')
     const data = await response.json();
     setItens(data)
   }
 
   useEffect(function(){ toRequest() }, [])
-  
-
 
   return <div className="ReadAll">
       {items.map(function (item) {
