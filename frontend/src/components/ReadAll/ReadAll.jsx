@@ -39,7 +39,8 @@ function ReadAll() {
 
   async function toRequest() {
     //calling backend:
-    const response = await fetch('http://localhost:3000/itens');
+    //const response = await fetch('http://localhost:3000/itens');
+    const response = await fetch('https://backend-jornada-fullstack-fevereiro-23.onrender.com/itens')
     const data = await response.json();
     setItens(data)
   }
