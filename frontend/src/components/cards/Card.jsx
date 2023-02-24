@@ -16,7 +16,7 @@ function Card(props){
                 </div>
             )}            
             
-            <img src={item.imagemUrl} alt="" />            
+            <img src={item.imageURL} alt="" />            
         </div>
     )
 }
